@@ -97,6 +97,7 @@ import {
 } from "lib/wallets";
 import { useChainId } from "lib/chains";
 import ExternalLink from "components/ExternalLink/ExternalLink";
+import OwnPage from "pages/OwnPage/OwnPage";
 
 if ("ethereum" in window) {
   window.ethereum.autoRefreshOnNetworkChange = false;
@@ -535,6 +536,9 @@ function FullApp() {
               </Route>
               <Route exact path="/complete_account_transfer/:sender/:receiver">
                 <CompleteAccountTransfer setPendingTxns={setPendingTxns} />
+              </Route>
+              <Route exact path='/ownpage'>
+                <OwnPage/>
               </Route>
               <Route path="*">
                 <PageNotFound />
