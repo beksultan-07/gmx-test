@@ -207,11 +207,15 @@ export default function OwnPage() {
                     className='OwnPage-form-input' 
                     value={sum}
                     onChange={(e) => setSum(e.target.value)}/>
-                  <button 
-                    className='OwnPage-form-input-btn' 
-                    onClick={() => setCurrencyClick(!currencyClick)}
+                  <div 
+                    className='OwnPage-form-input-btn-wrap' 
                     >
-                    {activeCurrancy}
+                    <button 
+                      onClick={() => setCurrencyClick(!currencyClick)}
+                      className='OwnPage-form-input-btn'>
+                        {activeCurrancy}
+                    </button>
+
                     <svg className='OwnPage-form-btn-logo' width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M4 2.871L1.879 4.99275L0.817749 3.93225L4 0.75L7.18225 3.93225L6.121 4.99275L4 2.871Z" fill="#252525"/>
                     </svg>
@@ -233,7 +237,7 @@ export default function OwnPage() {
                         }
                       })}
                     </div>
-                  </button>
+                  </div>
                 </div>
               </div>
               <div className='OwnPage-form-input-content'>

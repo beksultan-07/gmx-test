@@ -204,20 +204,21 @@
     color: #252525;
 }
 
-.OwnPage-form-input-btn{
+.OwnPage-form-input-btn-wrap{
     display: flex;
     align-items: center;
+    position: relative;
+}
+.OwnPage-form-input-btn{
     border: none;
     border-left: 1px solid #E8E8E8;
     background: none;
-
     font-family: 'Helvetica';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;
     color: #252525;
-    position: relative;
 }
 
 .OwnPage-form-btn-logo{
