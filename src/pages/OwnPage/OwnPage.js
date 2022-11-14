@@ -235,6 +235,7 @@ export default function OwnPage() {
                             </button>
                           )
                         }
+                        return <></>
                       })}
                     </div>
                   </div>
