@@ -39,7 +39,6 @@ export default function OwnPage() {
   ])
   const [requisite, setRequisite] = React.useState(banks[0].requisite)
 
-
   const [faq] = React.useState([
     {
       title: 'Question',
@@ -67,6 +66,39 @@ export default function OwnPage() {
     },
   ])
 
+  const [sum, setSum] = React.useState(0)
+
+  const [swiftID, setSwiftID] = React.useState('')
+
+  const [activeCurrancy, setActiveCurrancy] = React.useState('USDT')
+
+  const [currancy] = React.useState(['USDT', 'EURO'])
+
+  const [currencyClick, setCurrencyClick] = React.useState(false)
+
+  const [LP, setLP] = React.useState(0)
+
+
+  const submit = (e) => {
+    e.preventDefault();
+    
+    const obj = {
+      swiftID,
+      sum,
+      LP,
+      currancy: activeCurrancy
+    }
+
+    console.log(obj);
+    setSwiftID('')
+    setSum(0)
+    setLP(0)
+  }
+  
+  React.useEffect(() => {
+    setLP(sum**2)
+  }, [sum])
+  
 
   return (
     <div className='OwnPage-wrap'>
@@ -74,7 +106,7 @@ export default function OwnPage() {
         <div className='OwnPage-content'>
           <ul className='OwnPage-banks'>
             {banks.map((el, index) => (
-              <li className='OwnPage-bank' key={index} onClick={() => setRequisite(el.requisite)}>
+              <li className='OwnPage-bank' key={index} onClick={() =>  setRequisite(el.requisite)}>
                 <div className='OwnPage-bank__content'>
                   <div className='OwnPage-bank__logo'></div>
                   <div className='OwnPage-bank__results'>
@@ -122,14 +154,121 @@ export default function OwnPage() {
                 <span className='OwnPage-requisite__name'>Name</span>
                 <span className='OwnPage-requisite__value'>{requisite.name}</span>
               </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>Информация о банке</span>
+                <span className='OwnPage-requisite__value'>{requisite.bank}</span>
+              </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>SWIFT</span>
+                <span className='OwnPage-requisite__value'>{requisite.swift}</span>
+              </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>Name</span>
+                <span className='OwnPage-requisite__value'>{requisite.name}</span>
+              </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>Информация о банке</span>
+                <span className='OwnPage-requisite__value'>{requisite.bank}</span>
+              </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>SWIFT</span>
+                <span className='OwnPage-requisite__value'>{requisite.swift}</span>
+              </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>Name</span>
+                <span className='OwnPage-requisite__value'>{requisite.name}</span>
+              </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>Информация о банке</span>
+                <span className='OwnPage-requisite__value'>{requisite.bank}</span>
+              </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>SWIFT</span>
+                <span className='OwnPage-requisite__value'>{requisite.swift}</span>
+              </li>
+              <li className='OwnPage-requisite__item'>
+                <span className='OwnPage-requisite__name'>Name</span>
+                <span className='OwnPage-requisite__value'>{requisite.name}</span>
+              </li>
             </ul>
 
           </div>
 
 
           <div className='OwnPage-form-wrap'>
-            <form>
+            <form className='OwnPage-form-wrap'>
+              <div className='OwnPage-form-input-content'>
+                <h3 className='OwnPage-form-title'>
+                  Сумма
+                </h3>
+                <div className='OwnPage-form-input-wrap'>
+                  <input 
+                    type='number' 
+                    className='OwnPage-form-input' 
+                    value={sum}
+                    onChange={(e) => setSum(e.target.value)}/>
+                  <button 
+                    className='OwnPage-form-input-btn' 
+                    onClick={() => setCurrencyClick(!currencyClick)}
+                    >
+                    {activeCurrancy}
+                    <svg className='OwnPage-form-btn-logo' width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 2.871L1.879 4.99275L0.817749 3.93225L4 0.75L7.18225 3.93225L6.121 4.99275L4 2.871Z" fill="#252525"/>
+                    </svg>
 
+                    <div 
+                    className={`OwnPage-form-select ${currencyClick ? 'active' : ''}`}
+                    >
+                      {currancy.map((el, idx) => {
+                        if(el !== activeCurrancy){
+                          return(
+                            <button 
+                              className='OwnPage-form-option' 
+                              onClick={() => setActiveCurrancy(el)} 
+                              key={idx}
+                            >
+                              {el}
+                            </button>
+                          )
+                        }
+                      })}
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div className='OwnPage-form-input-content'>
+                <h3 className='OwnPage-form-title'>
+                  Вывод
+                </h3>
+                <div className='OwnPage-form-input-wrap'>
+                  <input 
+                    type='number' 
+                    className='OwnPage-form-input' 
+                    onChange={() => {}}
+                    value={LP}/>
+                  <button className='OwnPage-form-input-btn'>
+                    LP
+                  </button>
+                </div>
+              </div>
+              <div className='OwnPage-form-input-content'>
+                <h3 className='OwnPage-form-title'>
+                  ID Swift
+                </h3>
+                <div className='OwnPage-form-input-wrap'>
+                  <input 
+                    type='text' 
+                    className='OwnPage-form-input' 
+                    value={swiftID}
+                    onChange={(e) => setSwiftID(e.target.value)}/>
+                    <button className='OwnPage-form-input-btn'></button>
+                </div>
+              </div>
+              <div className='OwnPage-form-input-content'>
+                <button className='OwnPage-form-btn'  onClick={e => submit(e)}>
+                  Отправить
+                </button>
+              </div>
             </form>
           </div>
         </div>

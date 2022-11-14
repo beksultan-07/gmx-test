@@ -6,6 +6,7 @@
 .OwnPage-container{
     max-width: 1316px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 .OwnPage-content{
@@ -16,6 +17,7 @@
 .OwnPage-banks{
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
@@ -145,10 +147,131 @@
 .OwnPage-form-wrap{
     max-width: 500px;
     width: 100%;
+    min-height: 100%;
     background: #FFFFFF;
     border-radius: 4px;
     padding: 14px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.OwnPage-form-wrap{
+    display: flex;
+    flex-direction: column;
+}
+
+.OwnPage-form-input-content{
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.OwnPage-form-input-wrap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 2px;
+    background: #F9F9F9;
+    
+}
+
+.OwnPage-form-input-wrap:first-child{
+    margin: 0;
+}
+
+.OwnPage-form-title{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #9C9C9C;
+    margin: 0 0 10px;
+}
+
+.OwnPage-form-input{
+    padding: 10px;
+    max-width: 360px;
+    width: 100%;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #252525;
+}
+
+.OwnPage-form-input-btn{
+    display: flex;
+    align-items: center;
+    border: none;
+    border-left: 1px solid #E8E8E8;
+    background: none;
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #252525;
+    position: relative;
+}
+
+.OwnPage-form-btn-logo{
+    margin: 0 0 0 5px;
+}
+
+.OwnPage-form-select{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 4px;
+    transition: .5s;
+}
+
+.OwnPage-form-select.active{
+    bottom: 40px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.OwnPage-form-option{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #252525;
+    padding: 8px; 
+    border: none;
+    background: #F9F9F9;
+}
+
+.OwnPage-form-btn{
+    max-width: 160px;
+    width: 100%;
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+    background: #F48020;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    color: #FFFFFF;
+    margin: 0 0 0 auto;
+}
+
 
 
 
@@ -205,3 +328,30 @@
 }
 
 
+
+@media screen and (max-width: 1262px) {
+    .OwnPage-content{
+        flex-direction: column;
+    }
+    .OwnPage-banks{
+        flex-direction: row;
+        overflow-y: auto;
+        width: 100%;
+    }
+    .OwnPage-bank{margin: 0 0 0 20px;}
+    .OwnPage-bank:first-child{margin: 0;}
+
+    .OwnPage-requisite-wrap, .OwnPage-form-wrap{
+        min-width: 100%;
+        margin: 20px 0 0;
+    }
+}
+
+@media screen and (max-width: 834px) {
+    .OwnPage-FAQ__list{
+        grid-template-columns: 1fr;
+    }
+    .OwnPage-FAQ__item__text{
+        max-width: 100%;
+    }
+}
